@@ -10,7 +10,7 @@ import com.rays.common.BaseDTO;
 
 /**
  * College DTO class
- * Rahul Kirar 
+ *Rahul Kirar 
  */
 
 @Entity

@@ -11,12 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Contains attached file information and data
- * Rahul Kirar 
+ *Rahul Kirar 
  */
 
 @Entity
 @Table(name = "ST_ATTACHMENT")
-
 public class AttachmentDTO extends AttachmentBaseDTO {
 
 	public AttachmentDTO() {

@@ -11,7 +11,7 @@ import com.rays.common.BaseDTO;
 
 /**
  * Student POJO class. It is persistent object.
- * Rahul Kirar 
+ *Rahul Kirar 
  */
 
 @Entity

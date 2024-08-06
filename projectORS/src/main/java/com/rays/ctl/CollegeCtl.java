@@ -17,7 +17,7 @@ import com.rays.service.CollegeServiceInt;
 
 
 /**
- * Rahul Kirar 
+ *Rahul Kirar 
  *
  */
 @RestController

@@ -14,7 +14,7 @@ import com.rays.exception.DuplicateRecordException;
 
 
 /**
- * Rahul Kirar 
+ *Rahul Kirar 
  *
  * @param <T>
  * @param <D>
@@ -41,7 +41,7 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 
 	@Transactional(readOnly = true)
 	public List<T> search(T dto, int pageNo, int pageSize, UserContext userContext) {
-		System.out.println("Search run in Baseservice......Rahul");
+		System.out.println("Search run in Baseservice......Paras");
 		return baseDao.search(dto, pageNo, pageSize, userContext);
 	}
 	
@@ -54,7 +54,7 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 
 	@Transactional(readOnly = true)
 	public List<T> search(T dto, UserContext userContext) {
-		System.out.println("baseservice Search run.....rahul ");
+		System.out.println("baseservice Search run.....Paras ");
 		return baseDao.search(dto, userContext);  
 		
 	}
@@ -62,7 +62,7 @@ public abstract class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>
 	@Transactional(readOnly = false)
 	public long add(T dto, UserContext userContext) throws DuplicateRecordException {
 		// check duplicate
-		System.out.println("add() run in BaseSecrvice......rahul ");
+		System.out.println("add() run in BaseSecrvice......Paras ");
 		long pk = baseDao.add(dto, userContext);
 		return pk;
 	}

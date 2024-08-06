@@ -20,7 +20,7 @@ import com.rays.common.ORSResponse;
 
 /**
  * Contains REST API to send an email.
- *Rahul Kirar 
+ *Paras Mahajan 
  */
 @RestController
 @RequestMapping(value = "Email")
