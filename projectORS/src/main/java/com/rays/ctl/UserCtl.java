@@ -124,7 +124,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	 */
 	@PostMapping("changepassword")
 	public ORSResponse changePassword(@RequestBody @Valid ChangePasswordForm form, BindingResult bindingResult) {
-		System.out.println("Inside changepassword in userctl......Paras");
+		System.out.println("Inside changepassword in userctl......Rahul");
 
 		ORSResponse res = validate(bindingResult);
 
@@ -210,7 +210,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	public ORSResponse uploadPic(@PathVariable Long userId, @RequestParam("file") MultipartFile file,
 			HttpServletRequest req) {
 
-		System.out.println("User ID id --------------Paras Mahajan" + userId);
+		System.out.println("User ID id --------------Rahul" + userId);
 
 		UserDTO userDTO = baseService.findById(userId, userContext);
 
@@ -220,10 +220,10 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 		System.out.println(doc.getDescription() + "description");
 
 		doc.setPath(req.getServletPath());
-		System.out.println(doc.getPath() + "path-----Paras");
+		System.out.println(doc.getPath() + "path-----Rahul");
 
 		doc.setUserId(userId);
-		System.out.println(doc.getUserId() + "id-----Paras");
+		System.out.println(doc.getUserId() + "id-----Rahul");
 
 		if (userDTO.getImageId() != null && userDTO.getImageId() > 0) {
 			doc.setId(userDTO.getImageId());
@@ -276,7 +276,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 				out.write(attachmentDTO.getDoc());
 				out.close();
 
-				System.out.println("Profile pic......Paras");
+				System.out.println("Profile pic......Rahul");
 			} else {
 				response.getWriter().write("ERROR: File not found");
 			}

@@ -13,6 +13,11 @@ import com.rays.common.BaseDTO;
 @Table(name = "ST_ROUTE")
 public class RouteDTO extends BaseDTO {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "NAME")
 	private String name;
 

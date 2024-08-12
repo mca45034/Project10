@@ -18,20 +18,22 @@ import com.rays.validation.ValidLong;
 public class BikeForm extends BaseForm{
 	//@Pattern(regexp = "^[A-Z][a-z]+ [A-Z][a-z]+$", message = "invalid color")
 	@Size(max = 20, message = "this field is 20 character only")
-	@NotEmpty(message = "Please enter Name")
+	@NotEmpty(message = "Please enter color type")
+	
 	private String name;
 
 	@Pattern(regexp = "^(?:[1-9]|[1-9][0-9]|[1-4][0-9]{2}|500)$", message = "Payment Term must be a number between 1 and 500")
+	
 	@NotEmpty(message = "Please enter payment Term")
 	private String paymentTerm;
 
-	@NotEmpty(message = "Please enter registration Date")
+	@NotEmpty(message = "Please enter purches Date")
 	@ValidDate(message = "Invalid date format or value")
 	private String registrationDate;
 
 	//private String categoryName;
 
-	@NotEmpty(message = "Please enter categoryId")
+	@NotEmpty(message = "Please enter Bike Name")
 	@ValidLong(message = "Invalid input for category id", allowEmpty = true)
 	@Min(value = 1, message = "categoryId should be greater than 0")
 	private String preloadId;
@@ -83,7 +85,6 @@ public class BikeForm extends BaseForm{
 				Date parsedDate = dateFormat.parse(registrationDate);
 				dto.setRegistrationDate(parsedDate);
 			} catch (ParseException e) {
-				// Handle parse exception if needed
 				e.printStackTrace();
 			}
 		}

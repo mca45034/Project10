@@ -37,6 +37,17 @@ export class AtmslistComponent extends BaseListCtl implements OnInit {
     super.ngOnInit();
   }
 
+  
+  limitInputw(event: any, maxLength: Text) {
+    const target = event.target;
+    const value = target.value;
+    if (value.length >= maxLength) {
+      event.preventDefault();
+    } else if (!/^[a-zA-Z]*$\d{0,15}$/.test(value + event.key)) {
+      event.preventDefault();
+    }
+  }
+
   formatDate(event: any) {
     const selectedDate = new Date(event);
     const formattedDate = selectedDate.toISOString().split('T')[0];
@@ -46,6 +57,7 @@ export class AtmslistComponent extends BaseListCtl implements OnInit {
   convertToLocalDate(dateString: string): string {
     const date = new Date(dateString);
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+
     return date.toLocaleDateString(undefined, options);
   }
 
@@ -64,6 +76,7 @@ export class AtmslistComponent extends BaseListCtl implements OnInit {
     }
   }
 
+  
   submit() {
     this.form.pageNo = 0;
     this.search();

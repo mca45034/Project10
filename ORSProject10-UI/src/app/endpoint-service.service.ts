@@ -17,6 +17,9 @@ export class EndpointServiceService {
   public PAYMENT = this.SERVER_URL + "/Payment";
   public CLIENT = this.SERVER_URL + "/Client";
 
+  public LOANS = this.SERVER_URL + "/Loans";
+
+  public CAR = this.SERVER_URL + "/Car";
 
   public BIKE = this.SERVER_URL + "/Bike";
 
@@ -28,10 +31,11 @@ export class EndpointServiceService {
   public CUSTOMER = this.SERVER_URL + "/Customer";
   public TRANSACTIONS = this.SERVER_URL + "/Transactions";
   public ROUTE = this.SERVER_URL + "/Route";
-  public LOANS = this.SERVER_URL + "/Loans";
+
   public PROJECT = this.SERVER_URL + "/Project";
   public JOB = this.SERVER_URL + "/Job";
   public ISSUE = this.SERVER_URL + "/Issue";
+  
   public PRIORITY = this.SERVER_URL + "/Priority";
   public EMPLOYEE = this.SERVER_URL + "/Employee";
   public TRANSPORTATION = this.SERVER_URL + "/Transportation";

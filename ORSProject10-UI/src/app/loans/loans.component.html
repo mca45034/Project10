@@ -8,6 +8,7 @@
   }
 
   .input-group-addon {
+
     box-shadow: 9px 8px 7px #001a33;
   }
 
@@ -17,10 +18,12 @@
   }
 
   .alertRedColor {
+
     color: red;
   }
 
   .card-body {
+
     padding: 2rem;
   }
 
@@ -107,17 +110,18 @@
 
             <form [formGroup]="userForm">
               <div class="form-group">
-                <label for="loanAmount">Loan Amount</label>
+                <label for="loanAmount"><b>Loan Amount</b></label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-flag grey-text"></i></div>
                   </div>
-                <input type="number" class="form-control" id="loanAmount" formControlName="loanAmount">
+                <input type="number" class="form-control" id="loanAmount" formControlName="loanAmount"  placeholder="{{ 'Enter Amount' | translate }}">
                 <div *ngIf="userForm.get('loanAmount').invalid && (userForm.get('loanAmount').dirty || userForm.get('loanAmount').touched)">
                   <div *ngIf="userForm.get('loanAmount').errors?.invalidRange" class="text-danger">Loan amount must be between 50,000 and 1,000,000.</div>
                 </div>
-                <span *ngIf="form.inputerror.loanAmount" class="alertRedColor">{{form.inputerror.loanAmount}}</span>
+               
               </div>
+               <span *ngIf="form.inputerror.loanAmount" class="alertRedColor">{{form.inputerror.loanAmount}}</span>
             
               <!--<button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button> -->
         
@@ -133,7 +137,7 @@
                   <div class="input-group-text"><i class="fa fa-phone grey-text"></i></div>
                 </div>
                 <input type="number" name="interestRate" [(ngModel)]="form.data.interestRate" class="form-control"
-                  placeholder="{{ 'Enter interestRate' | translate }}">
+                  placeholder="{{ 'Enter interestRate' | translate }}" (keypress)="limitInput($event, 1)">
 
 
               </div>

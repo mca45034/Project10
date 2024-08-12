@@ -30,17 +30,20 @@ public class LoansDAOImpl extends BaseDAOImpl<LoansDTO> implements LoansDAOInt {
 
 	@Override
 	protected void populate(LoansDTO dto, UserContext userContext) {
+
 		if (dto.getCustomerIdId() != null && dto.getCustomerIdId() > 0) {
+
 			CustomerIdDTO customerIdDto = customerIdDao.findByPK(dto.getCustomerIdId(), userContext);
+
 			dto.setCustomerIdName(customerIdDto.getName());
+
 			System.out.println(dto.getCustomerIdName() + "PriorityName-------");
 		}
 
 	}
 
 	@Override
-	protected List<Predicate> getWhereClause(LoansDTO dto, CriteriaBuilder builder,
-			Root<LoansDTO> qRoot) {
+	protected List<Predicate> getWhereClause(LoansDTO dto, CriteriaBuilder builder, Root<LoansDTO> qRoot) {
 		// Create where conditions
 		List<Predicate> whereCondition = new ArrayList<>();
 
@@ -51,7 +54,7 @@ public class LoansDAOImpl extends BaseDAOImpl<LoansDTO> implements LoansDAOInt {
 		if (!isZeroNumber(dto.getLoanAmount())) {
 			whereCondition.add(builder.equal(qRoot.get("loanAmount"), dto.getLoanAmount()));
 		}
-		
+
 		if (!isZeroNumber(dto.getInterestRate())) {
 			whereCondition.add(builder.equal(qRoot.get("interestRate"), dto.getInterestRate()));
 		}

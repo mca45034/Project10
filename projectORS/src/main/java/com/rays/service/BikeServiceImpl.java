@@ -10,7 +10,8 @@ import com.rays.dto.BikeDTO;
 
 @Service
 @Transactional
-public class BikeServiceImpl extends BaseServiceImpl<BikeDTO, BikeDAOInt> implements BikeServiceInt{
+public class BikeServiceImpl extends BaseServiceImpl<BikeDTO, BikeDAOInt> implements BikeServiceInt {
+
 	@Autowired
 	BikeDAOInt bikeDAO;
 }

@@ -13,11 +13,21 @@ import com.rays.common.BaseDTO;
 @Table(name = "ST_ATMs")
 public class ATMsDTO extends BaseDTO {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+
 	@Column(name = "CASH_AVAILABLE")
 	private double cashAvailable;
 
 	@Column(name = "LAST_RESTOCKED_DATE")
 	private Date lastRestockedDate;
+	
+	
+	@Column(name = "REMARK")
+	private String reMark;
 
 	@Column(name = "LOCATION_NAME", length = 20)
 	private String locationName = null;
@@ -33,12 +43,22 @@ public class ATMsDTO extends BaseDTO {
 		this.cashAvailable = cashAvailable;
 	}
 
+	
 	public Date getLastRestockedDate() {
 		return lastRestockedDate;
 	}
 
 	public void setLastRestockedDate(Date lastRestockedDate) {
 		this.lastRestockedDate = lastRestockedDate;
+	}
+	
+
+	public String getReMark() {
+		return reMark;
+	}
+
+	public void setReMark(String reMark) {
+		this.reMark = reMark;
 	}
 
 	public String getLocationName() {
@@ -56,10 +76,12 @@ public class ATMsDTO extends BaseDTO {
 	public void setLocationId(Long locationId) {
 		this.locationId = locationId;
 	}
+	
 
 	public String getKey() {
 		return id + "";
 	}
+	
 
 	@Override
 	public String getValue() {

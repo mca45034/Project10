@@ -56,6 +56,17 @@ export class LoansComponent extends BaseCtl {
     });
   }
 
+  limitInput(event: any, maxLength: number) {
+    const target = event.target;
+    const value = target.value;
+    if (value.length >= maxLength) {
+      event.preventDefault();
+    } else if (!/^(1|2|3|4|5|6|7|8|9|0)\d{0,9}$/.test(value + event.key)) {
+      event.preventDefault();
+    }
+  }
+
+
   submit1() {
     var _self = this;
     console.log(this.form + "submit running start");

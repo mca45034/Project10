@@ -35,10 +35,15 @@ public class LoansCtl extends BaseCtl<LoansForm, LoansDTO, LoansServiceInt> {
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		System.out.println("inside preload Rahul");
+
 		ORSResponse res = new ORSResponse(true);
+
 		CustomerIdDTO dto = new CustomerIdDTO();
+
 		List<DropdownList> list = customerIdService.search(dto, userContext);
+
 		res.addResult("customerIdList", list);
+
 		return res;
 	}
 

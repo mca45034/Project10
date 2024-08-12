@@ -26,6 +26,7 @@ public class ATMsDAOImpl extends BaseDAOImpl<ATMsDTO> implements ATMsDAOInt {
 	}
 
 	@Autowired
+
 	LocationDAOInt locationDao;
 
 	@Override
@@ -39,15 +40,14 @@ public class ATMsDAOImpl extends BaseDAOImpl<ATMsDTO> implements ATMsDAOInt {
 	}
 
 	@Override
-	protected List<Predicate> getWhereClause(ATMsDTO dto, CriteriaBuilder builder,
-			Root<ATMsDTO> qRoot) {
+	protected List<Predicate> getWhereClause(ATMsDTO dto, CriteriaBuilder builder, Root<ATMsDTO> qRoot) {
 		// Create where conditions
 		List<Predicate> whereCondition = new ArrayList<>();
 
 		if (dto.getId() != null && dto.getId() > 0) {
 			whereCondition.add(builder.equal(qRoot.get("id"), dto.getId()));
 		}
-		
+
 		if (!isZeroNumber(dto.getCashAvailable())) {
 			whereCondition.add(builder.equal(qRoot.get("cashAvailable"), dto.getCashAvailable()));
 		}
@@ -55,6 +55,7 @@ public class ATMsDAOImpl extends BaseDAOImpl<ATMsDTO> implements ATMsDAOInt {
 		if (isNotNull(dto.getLastRestockedDate())) {
 			// Assuming "dateOfPurchase" field is of type java.util.Date or java.sql.Date
 			Date searchDate = dto.getLastRestockedDate();
+			
 
 			// Define start and end dates for the search day
 			Calendar calendar = Calendar.getInstance();
@@ -68,15 +69,24 @@ public class ATMsDAOImpl extends BaseDAOImpl<ATMsDTO> implements ATMsDAOInt {
 			calendar.set(Calendar.MINUTE, 59);
 			calendar.set(Calendar.SECOND, 59);
 			Date endDate = calendar.getTime();
+			
+			
 
 			// Create predicate for date range
 			Predicate datePredicate = builder.between(qRoot.get("lastRestockedDate"), startDate, endDate);
 			whereCondition.add(datePredicate);
 		}
+		
+		if (!isEmptyString(dto.getReMark())) {
+			whereCondition.add(builder.like(qRoot.get("reMark"), dto.getReMark() + "%"));
+		}
+		
 
 		if (!isZeroNumber(dto.getLocationId())) {
 			whereCondition.add(builder.equal(qRoot.get("locationId"), dto.getLocationId()));
 		}
+		
+		
 
 		if (!isEmptyString(dto.getLocationName())) {
 			whereCondition.add(builder.like(qRoot.get("locationName"), dto.getLocationName() + "%"));

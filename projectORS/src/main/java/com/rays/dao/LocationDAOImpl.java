@@ -13,7 +13,7 @@ import com.rays.common.BaseDAOImpl;
 import com.rays.dto.LocationDTO;
 
 @Repository
-public class LocationDAOImpl extends BaseDAOImpl<LocationDTO> implements LocationDAOInt {
+public class LocationDAOImpl extends BaseDAOImpl<LocationDTO> implements  LocationDAOInt {
 
 	@Override
 	public Class<LocationDTO> getDTOClass() {

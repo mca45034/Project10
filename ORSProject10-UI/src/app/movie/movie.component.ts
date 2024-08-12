@@ -112,7 +112,7 @@ export class MovieComponent extends BaseCtl {
     form.name = data.name;
     form.paymentTerm = data.paymentTerm;
     form.registrationDate = data.registrationDate;
-    form.categoryId = data.categoryId;
+    form.preloadId = data.preloadId;
 
 
   }

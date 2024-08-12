@@ -24,19 +24,23 @@ import com.rays.service.GenderServiceInt;
 
 @RestController
 @RequestMapping(value = "Customer")
+
 public class CustomerCtl extends BaseCtl<CustomerForm, CustomerDTO, CustomerServiceInt> {
 
 	@Autowired
 	GenderServiceInt genderService;
 
+	
 	@Autowired
 	CustomerServiceInt customerService;
+	
 
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		System.out.println("inside preload Rahul");
 		ORSResponse res = new ORSResponse(true);
 		GenderDTO dto = new GenderDTO();
+		
 		List<DropdownList> list = genderService.search(dto, userContext);
 		res.addResult("genderList", list);
 		return res;

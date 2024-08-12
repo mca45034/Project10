@@ -14,15 +14,21 @@ import com.rays.validation.ValidDate;
 import com.rays.validation.ValidDouble;
 import com.rays.validation.ValidLong;
 
+
 public class ATMsForm extends BaseForm {
 
 	@NotNull(message = "Please enter cash Available")
 	@ValidDouble(message = "Invalid value for cash Available")
+
 	private String cashAvailable;
 
 	@NotNull(message = "Please enter last Restocked Date")
 	@ValidDate(message = "Invalid date format or value")
+
 	private String lastRestockedDate;
+	
+	@NotNull(message = "Please enter Remark")
+	private String reMark;
 
 	private String locationName;
 
@@ -46,8 +52,18 @@ public class ATMsForm extends BaseForm {
 	public void setLastRestockedDate(String lastRestockedDate) {
 		this.lastRestockedDate = lastRestockedDate;
 	}
+	
+
+	public String getReMark() {
+		return reMark;
+	}
+
+	public void setReMark(String reMark) {
+		this.reMark = reMark;
+	}
 
 	public String getLocationName() {
+		
 		return locationName;
 	}
 
@@ -66,6 +82,8 @@ public class ATMsForm extends BaseForm {
 	@Override
 	public BaseDTO getDto() {
 		ATMsDTO dto = initDTO(new ATMsDTO());
+		
+		dto.setReMark(reMark);
 
 		if (lastRestockedDate != null && !lastRestockedDate.isEmpty()) {
 			try {
@@ -77,6 +95,7 @@ public class ATMsForm extends BaseForm {
 				e.printStackTrace();
 			}
 		}
+	
 
 		if (cashAvailable != null && !cashAvailable.isEmpty()) {
 			dto.setCashAvailable(Double.parseDouble(cashAvailable));

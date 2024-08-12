@@ -21,27 +21,30 @@ import com.rays.dto.PreloadDTO;
 import com.rays.form.BikeForm;
 import com.rays.service.BikeServiceInt;
 import com.rays.service.PreloadServiceInt;
+
 @RestController
 @RequestMapping(value = "Bike")
-public class BikeCtl extends BaseCtl<BikeForm, BikeDTO, BikeServiceInt>{
+
+public class BikeCtl extends BaseCtl<BikeForm, BikeDTO, BikeServiceInt> {
 	@Autowired
 	PreloadServiceInt preloadService;
-	
 
 	@Autowired
 	BikeServiceInt bikeService;
-	
+
 	@GetMapping("/preload")
+
 	public ORSResponse preload() {
 		System.out.println("inside preload Paras");
 		ORSResponse res = new ORSResponse(true);
 		PreloadDTO dto = new PreloadDTO();
-		
+
 		List<DropdownList> list = preloadService.search(dto, userContext);
-		
+
 		res.addResult("preloadList", list);
 		return res;
 	}
+
 	@PostMapping
 	public ResponseEntity<String> createSupplier(@Valid @RequestBody BikeForm bikeForm) {
 		// Handle the logic to save the patient

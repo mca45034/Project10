@@ -16,6 +16,7 @@ public class CustomerIdServiceImpl extends BaseServiceImpl<CustomerIdDTO, Custom
 		implements CustomerIdServiceInt {
 
 	private static Logger log = LoggerFactory.getLogger(CustomerIdServiceImpl.class);
+	
 
 	@Transactional(readOnly = true)
 	public CustomerIdDTO findByName(String name, UserContext userContext) {

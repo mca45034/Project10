@@ -85,7 +85,7 @@ public class MovieDTO extends BaseDTO{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "orgName";
+		return "preloadName";
 	}
 
 	@Override

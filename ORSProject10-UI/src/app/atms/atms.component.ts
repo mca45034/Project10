@@ -22,6 +22,22 @@ export class AtmsComponent extends BaseCtl {
     super(locator.endpoints.ATMS, locator, route);
   }
 
+
+  validateCashInput(event: any) {
+    const value = event.target.value.trim();
+    const isValidNumber = /^[0-9]+(\.[0-9]+)?$/.test(value);
+    const floatValue = parseFloat(value);
+
+    if (value === '') {
+      this.form.inputerror.cashAvailable = null; // Clear the error message
+    } else if (!isValidNumber || floatValue > 1000000000 || !value.includes('.')) {
+      this.form.inputerror.cashAvailable = 'Please type an exact cash available value (e.g., 90.9, 1000000.5)';
+    } else {
+      this.form.inputerror.cashAvailable = null;
+      this.form.searchParams.cashAvailable = floatValue.toString();
+    }
+  }
+
   submit() {
     var _self = this;
     console.log('in submit');
@@ -102,6 +118,7 @@ export class AtmsComponent extends BaseCtl {
     console.log(form.id + 'populate form in shoppingcomponent');
     form.cashAvailable = data.cashAvailable;
     form.lastRestockedDate = data.lastRestockedDate;
+    form.reMark=data.reMark;
     form.locationId = data.locationId;
   }
 

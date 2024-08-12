@@ -25,7 +25,10 @@ public class LocationCtl extends BaseCtl<LocationForm, LocationDTO, LocationServ
 	@GetMapping("/preload")
 	public ORSResponse preload() {
 		System.out.println("inside preload");
+		
+		
 		ORSResponse res = new ORSResponse(true);
+		
 		LocationDTO dto = new LocationDTO();
 		List<DropdownList> list = locationService.search(dto, userContext);
 		res.addResult("locationList", list);

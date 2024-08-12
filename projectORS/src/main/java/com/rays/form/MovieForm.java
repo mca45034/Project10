@@ -30,9 +30,9 @@ public class MovieForm extends BaseForm{
 
 	//private String categoryName;
 
-	@NotEmpty(message = "Please enter categoryId")
-	@ValidLong(message = "Invalid input for category id", allowEmpty = true)
-	@Min(value = 1, message = "categoryId should be greater than 0")
+	@NotEmpty(message = "Please enter movieName")
+	@ValidLong(message = "Invalid input for movieName id", allowEmpty = true)
+	@Min(value = 1, message = "movieName should be greater than 0")
 	private String preloadId;
 
 	public String getName() {

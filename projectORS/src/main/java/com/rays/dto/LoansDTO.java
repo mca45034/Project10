@@ -13,6 +13,11 @@ import com.rays.common.BaseDTO;
 @Table(name = "ST_LOANS")
 public class LoansDTO extends BaseDTO {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "LOAN_AMOUNT")
 	private Long loanAmount;
 

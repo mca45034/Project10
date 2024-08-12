@@ -20,14 +20,21 @@ import com.rays.service.PreloadServiceInt;
 public class PreloadCtl extends BaseCtl<PreloadForm, PreloadDTO, PreloadServiceInt> {
 	@Autowired
 	private PreloadServiceInt preloadService;
-	
+
 	@GetMapping("/preload")
+
 	public ORSResponse preload() {
+
 		System.out.println("inside preload");
+
 		ORSResponse res = new ORSResponse(true);
+
 		PreloadDTO dto = new PreloadDTO();
+
 		List<DropdownList> list = preloadService.search(dto, userContext);
+
 		res.addResult("preloadList", list);
+
 		return res;
 	}
 

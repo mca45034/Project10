@@ -19,7 +19,7 @@ import com.rays.dto.PreloadDTO;
 
 
 @Repository
-public class BikeDAOImpl extends BaseDAOImpl<BikeDTO> implements BikeDAOInt{
+public class BikeDAOImpl extends BaseDAOImpl<BikeDTO> implements BikeDAOInt {
 	@Autowired
 	PreloadDAOInt preloadDao;
 
@@ -81,7 +81,6 @@ public class BikeDAOImpl extends BaseDAOImpl<BikeDTO> implements BikeDAOInt{
 
 		return whereCondition;
 	}
-		
 
 	@Override
 	public Class<BikeDTO> getDTOClass() {

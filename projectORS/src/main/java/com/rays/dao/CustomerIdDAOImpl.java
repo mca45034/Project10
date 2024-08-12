@@ -13,11 +13,14 @@ import com.rays.common.BaseDAOImpl;
 import com.rays.dto.CustomerIdDTO;
 
 @Repository
+
 public class CustomerIdDAOImpl extends BaseDAOImpl<CustomerIdDTO> implements CustomerIdDAOInt {
 
 	@Override
 	public Class<CustomerIdDTO> getDTOClass() {
+
 		return CustomerIdDTO.class;
+
 	}
 
 	@Override

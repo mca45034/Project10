@@ -12,6 +12,11 @@ import com.rays.common.BaseDTO;
 @Entity
 @Table(name = "ST_BIKE")
 public class BikeDTO extends BaseDTO {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "COLOR")
 	private String name;
 

@@ -38,6 +38,8 @@
     height: calc(2.25rem + 2px);
   }
 
+
+
   .form-group {
     margin-bottom: 1.5rem;
   }
@@ -46,6 +48,7 @@
     background-color: #e9ecef;
     border: 1px solid #ced4da;
   }
+  
 
   .input-group-prepend .input-group-text i {
     color: #495057;
@@ -55,6 +58,7 @@
     margin-left: 0;
     margin-right: 0;
   }
+
 
   .textarea-height {
     height: 100px;
@@ -66,15 +70,19 @@
   }
 </style>
 
+
 <div class="container-fluid"
+
   style="padding: 2% 0; background: url('assets/files/wall.jpg') no-repeat center center; background-attachment: fixed; background-size: cover; width: 100%; height: auto;">
   <div class="row justify-content-center">
+
     <div class="col-md-6">
       <div class="card">
         <div class="card-body input-group-addon grad">
           <form name="userForm">
             <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold text-center">{{ 'Add ATMs' |
               translate }}
+              
             </h2>
             <h2 *ngIf="form.data.id" class="text-primary font-weight-bold text-center">{{ 'Update ATMs' |
               translate }}
@@ -113,7 +121,7 @@
                   <div class="input-group-text"><i class="fa fa-money-bill-wave grey-text"></i></div>
                 </div>
                 <input type="text" name="cashAvailable" [(ngModel)]="form.data.cashAvailable" class="form-control"
-                  placeholder="{{ 'Enter cashAvailable' | translate }}" (input)="validateCashAvailableInput($event)">
+                  placeholder="{{ 'Enter cashAvailable' | translate }}"  (input)="validateCashInput($event)"  (input)="validateCashAvailableInput($event)">
               </div>
               <span *ngIf="form.inputerror.cashAvailable" class="alertRedColor">{{ form.inputerror.cashAvailable }}</span>
             </div>
@@ -124,12 +132,26 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-calendar-alt grey-text"></i></div>
+
                 </div>
                 <input type="date" name="lastRestockedDate" [value]="form.data.lastRestockedDate | date:'yyyy-MM-dd'"
                   (input)="form.data.lastRestockedDate=parseDate($event.target.value)" class="form-control" required />
               </div>
               <span *ngIf="form.inputerror.lastRestockedDate" class="alertRedColor">{{ form.inputerror.lastRestockedDate
                 }}</span>
+            </div>
+
+
+            <div class="form-group">
+              <label><b>{{ 'Remark' | translate }}</b><span class="required-field">*</span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-money-bill-wave grey-text"></i></div>
+                </div>
+                <input type="text" name="reMark" [(ngModel)]="form.data.reMark" class="form-control"
+                  placeholder="{{ 'Enter reMark' | translate }}"  >
+              </div>
+              <span *ngIf="form.inputerror.reMark" class="alertRedColor">{{ form.inputerror.reMark }}</span>
             </div>
 
 

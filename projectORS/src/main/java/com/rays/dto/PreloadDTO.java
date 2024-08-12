@@ -10,16 +10,22 @@ import com.rays.common.BaseDTO;
 
 @Entity
 @Table(name = "ST_PRELOAD")
-public class PreloadDTO extends BaseDTO{
+public class PreloadDTO extends BaseDTO {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static String YES = "Y";
 	public static String NO = "N";
 	public static String ACTIVE = "Active";
 	public static String INACTIVE = "Inactive";
 
 	@Column(name = "NAME", length = 50)
+	
 	private String name = null;
 
 	@Column(name = "DESCRIPTION", length = 100)
+	
 	private String description = null;
 
 	@Column(name = "STATE_NAME", length = 50)

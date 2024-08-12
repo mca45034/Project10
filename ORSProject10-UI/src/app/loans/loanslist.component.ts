@@ -22,6 +22,7 @@ export class LoanslistComponent extends BaseListCtl implements OnInit {
       loanAmount: '',
       date: '', // Initialize date field
       customerIdId: '',
+      
       interestRate: '',
       loanStartDate: ''
     },
@@ -30,10 +31,7 @@ export class LoanslistComponent extends BaseListCtl implements OnInit {
     pageNo: 0
   };
 
-  isValidMobileInput: boolean = true;
-  isValidNameInput: boolean = true;
-  nameErrorMessage: string = '';
-  mobileErrorMessage: string = '';
+  
 
   constructor(public locator: ServiceLocatorService, public route: ActivatedRoute, private httpClient: HttpClient) {
     super(locator.endpoints.LOANS, locator, route);
@@ -42,6 +40,7 @@ export class LoanslistComponent extends BaseListCtl implements OnInit {
   ngOnInit() {
     super.ngOnInit();
   }
+  
 
   // Format date function
   formatDate(event: any) {
@@ -58,23 +57,31 @@ export class LoanslistComponent extends BaseListCtl implements OnInit {
     return date.toLocaleDateString(undefined, options);
   }
 
+  isValidMobileInput: boolean = true;
+  isValidNameInput: boolean = true;
+  isValidPaymentTermInput: boolean = true;
+  nameErrorMessage: string = '';
+  mobileErrorMessage: string = '';
+  paymentTermErrorMessage: string = '';
+
   // Validate input for name and mobile fields
   validateInput(event: any, field: string) {
     const value = event.target.value;
     if (field === 'mobile') {
-      this.isValidMobileInput = /^[0-9]*$/.test(value); // Check if the input contains only numbers
-      if (!this.isValidMobileInput) {
-        this.mobileErrorMessage = 'Please type numbers only';
-      } else {
-        this.mobileErrorMessage = '';
-      }
+      this.isValidMobileInput = /^[0-9]*$/.test(value);
+      this.mobileErrorMessage = this.isValidMobileInput ? '' : 'Please type numbers only';
     } else if (field === 'name') {
-      this.isValidNameInput = /^[A-Za-z\s]*$/.test(value); // Check if the input contains only letters and spaces
-      if (!this.isValidNameInput) {
-        this.nameErrorMessage = 'Please type alphabets only';
-      } else {
-        this.nameErrorMessage = '';
-      }
+      this.isValidNameInput = /^[A-Za-z\s]*$/.test(value);
+      this.nameErrorMessage = this.isValidNameInput ? '' : 'Please type alphabets only';
+    } else if (field === 'loanAmount') {
+      const paymentTermValue = Number(value);
+      this.isValidPaymentTermInput = paymentTermValue >= 50000 && paymentTermValue <= 1000000;
+      this.paymentTermErrorMessage = this.isValidPaymentTermInput ? '' : 'Please type a number between 50000 and 1000000';
+    }else if (field === 'loanAmount') {
+      const paymentTermValues = Number(value);
+      this.isValidPaymentTermInput = paymentTermValues >= 50000 && paymentTermValues <= 1000000;
+     
+      this.nameErrorMessage = this.isValidMobileInput ? '' : 'Please type a number between 5 and 12';
     }
   }
 

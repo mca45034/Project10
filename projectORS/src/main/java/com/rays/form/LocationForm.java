@@ -8,12 +8,7 @@ import com.rays.dto.LocationDTO;
 
 public class LocationForm extends BaseForm {
 
-	public static final int INDORE = 1;
-	public static final int DEWAS = 2;
-	public static final int ASHOKNAGAR = 3;
-	public static final int GUNA = 4;
-	public static final int KHARGONE = 5;
-	public static final int BHOPAL = 6;
+
 
 	@NotEmpty(message = "please enter name")
 	private String name;
@@ -26,6 +21,7 @@ public class LocationForm extends BaseForm {
 	}
 
 	public void setName(String name) {
+		
 		this.name = name;
 	}
 

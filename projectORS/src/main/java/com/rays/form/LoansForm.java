@@ -18,15 +18,18 @@ import com.rays.validation.ValidLong;
 
 public class LoansForm extends BaseForm {
 
-	@NotEmpty(message = "Please enter loan Amount")
-	@Pattern(regexp = "^(50000|[5-9]\\d{4}|[1-9]\\d{5}|1000000)$", message = "Invalid input for loan amount. Please enter a value between 50000 and 1000000")
+	
+	@Pattern(regexp = "^(50000|[5-9]\\d{4}|[1-9]\\d{5}|1000000)$", message = "Invalid input for loan amount. Please enter a value between50000 and 1000000")
 	private String loanAmount;
 
-	@NotNull(message = "Please enter interest Rate")
+	
+	 
 	@ValidDouble(message = "Invalid value for interest Rate")
+	 
 	private String interestRate;
 
 	@NotNull(message = "Please enter loan Start Date")
+	
 	@ValidDate(message = "Invalid date format or value")
 	private String loanStartDate;
 

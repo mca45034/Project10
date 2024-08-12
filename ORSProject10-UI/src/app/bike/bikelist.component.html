@@ -44,18 +44,18 @@
       <div class="row search-inputs justify-content-center">
         <div class="col-md-3">
           <input type="text" class="form-control" [(ngModel)]="form.searchParams.name"
-            placeholder="{{ 'Search Name' | translate }}" (input)="validateInput($event, 'color')">
+            placeholder="{{ 'Search Color' | translate }}" (input)="validateInput($event, 'name')">
           <div *ngIf="!isValidNameInput" class="text-danger">{{ nameErrorMessage }}</div>
         </div>
 
         <div class="col-md-3">
           <input type="date" class="form-control" [(ngModel)]="form.searchParams.registrationDate"
-            (ngModelChange)="formatDate($event)" placeholder="{{ 'Search registrationDate' | translate }}">
+            (ngModelChange)="formatDate($event)" placeholder="{{ 'Search purches Date' | translate }}">
         </div>
 
         <div class="col-md-3">
           <input type="number" class="form-control" [(ngModel)]="form.searchParams.paymentTerm"
-            placeholder="{{ 'Search paymentTerm' | translate }}" (input)="validateInput($event, 'paymentTerm')">
+            placeholder="{{ 'Search price' | translate }}" (input)="validateInput($event, 'paymentTerm')">
           <div *ngIf="!isValidPaymentTermInput" class="text-danger">{{ paymentTermErrorMessage }}</div>
         </div>
 
@@ -115,6 +115,7 @@
               <td>{{ m.paymentTerm }}</td>
               <td>{{ convertToLocalDate(m.registrationDate) }}</td>
               <td>{{ m.name }}</td>
+
               <td>
                 <button class="fa fa-edit text-primary" id="nnn" (click)="forward('/bike/' + m.id)"></button>
               </td>

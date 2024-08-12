@@ -14,6 +14,7 @@
     justify-content: center;
   }
 
+
   .content-wrapper {
     background: url(assets/files/wall.jpg) no-repeat center center;
     background-attachment: fixed;
@@ -23,6 +24,7 @@
     padding: 20px;
   }
 
+
   .table-responsive {
     margin-top: 20px;
   }
@@ -31,6 +33,7 @@
     height: 100vh;
   }
 </style>
+
 
 <div class="content-wrapper full-height">
   <div class="container-fluid full-height">
@@ -44,18 +47,24 @@
           <input type="date" class="form-control" [(ngModel)]="form.searchParams.lastRestockedDate"
             (ngModelChange)="formatDate($event)" placeholder="{{ 'Search last Restocked Date' | translate }}">
         </div>
+        
         <div class="col-md-3">
           <input type="text" class="form-control" [(ngModel)]="form.searchParams.cashAvailable"
             (input)="validateCashInput($event)" placeholder="{{ 'Search cash Available' | translate }}">
-          <div *ngIf="form.inputerror.cashAvailable" class="text-danger">
-            {{ form.inputerror.cashAvailable }}
-          </div>
+          <div *ngIf="form.inputerror.cashAvailable" class="text-danger">{{ form.inputerror.cashAvailable }}</div>
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" class="form-control" [(ngModel)]="form.searchParams.reMark"
+             placeholder="{{ 'Search reMark' | translate }}" (keypress)="limitInputw($event, 20)">
+          <div *ngIf="form.inputerror.reMark" class="text-danger">{{ form.inputerror.reMark }}</div>
         </div>
         <div class="col-md-3">
-          <select class="form-control" name="locationId" [(ngModel)]="form.searchParams.locationId">
-            <option [ngValue]="undefined">{{ 'Select locationId' | translate }}</option>
-            <option *ngFor="let obj of form.preload.locationList" [value]="obj.key">{{ obj.value }}</option>
-          </select>
+          <select class="form-control" name="locationId" [(ngModel)]="form.data.locationId"
+          aria-label="ngSelected">
+          <option [ngValue]="undefined">{{ 'Select location' | translate }}</option>
+          <option *ngFor="let obj of form.preload.locationList" [value]="obj.key">{{ obj.value }}</option>
+        </select>
         </div>
       </div>
 
@@ -94,6 +103,7 @@
               <th>{{ 'S.No' }}</th>
               <th>{{ 'Cash Available' }}</th>
               <th>{{ 'Last Restocked Date' }}</th>
+              <th>{{ 'Remark' }}</th>
               <th>{{ 'locationId' }}</th>
               <th>{{ 'Edit' }}</th>
             </tr>
@@ -104,6 +114,7 @@
               <td>{{ (form.pageNo * 5) + i + 1 }}</td>
               <td>{{ m.cashAvailable }}</td>
               <td>{{ convertToLocalDate(m.lastRestockedDate) }}</td>
+              <td>{{ m.reMark }}</td>
               <td>{{ m.locationName }}</td>
               <td>
                 <button class="fa fa-edit text-primary" id="nnn" (click)="forward('/atms/' + m.id)"></button>

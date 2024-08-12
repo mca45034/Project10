@@ -10,7 +10,7 @@ import com.rays.dto.ATMsDTO;
 
 @Service
 @Transactional
-public class ATMsServiceImpl extends BaseServiceImpl<ATMsDTO, ATMsDAOInt> implements ATMsServiceInt {
+public class ATMsServiceImpl extends  BaseServiceImpl<ATMsDTO, ATMsDAOInt>  implements ATMsServiceInt {
 
 	@Autowired
 	ATMsDAOInt atmsDAO;

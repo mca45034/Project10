@@ -17,6 +17,7 @@ public class PreloadDAOImpl extends BaseDAOImpl<PreloadDTO> implements PreloadDA
 
 	@Override
 	protected List<Predicate> getWhereClause(PreloadDTO dto, CriteriaBuilder builder, Root<PreloadDTO> qRoot) {
+
 		List<Predicate> whereCondition = new ArrayList<Predicate>();
 
 		if (!isEmptyString(dto.getName())) {

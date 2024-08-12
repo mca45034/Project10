@@ -46,17 +46,21 @@
         </div>
         <div class="col-md-3">
           <input type="number" class="form-control" [(ngModel)]="form.searchParams.loanAmount"
-            placeholder="{{ 'Search loan Amount' | translate }}">
+            placeholder="{{ 'Search loan Amount' | translate }}"   (input)="validateInput($event, 'loanAmount')">
+            <div *ngIf="!isValidPaymentTermInput" class="text-danger">{{ paymentTermErrorMessage }}</div>
         </div>
+       
         <div class="col-md-3">
           <input type="number" class="form-control" [(ngModel)]="form.searchParams.interestRate"
-            placeholder="{{ 'Search interest Rate' | translate }}">
+            placeholder="{{ 'Search interest Rate' | translate }}"  (input)="validateInput($event, 'interestRate')">
+            <div *ngIf="!isValidPaymentTermInput" class="text-danger">{{ nameErrorMessage }}</div>
         </div>
         <div class="col-md-3">
-          <select class="form-control" name="customerIdId" [(ngModel)]="form.searchParams.customerIdId">
-            <option [ngValue]="undefined">{{ 'Select customerId' | translate }}</option>
-            <option *ngFor="let obj of form.preload.customerIdList" [value]="obj.key">{{ obj.key }}</option>
-          </select>
+          <select class="form-control" name="customerIdId" [(ngModel)]="form.data.customerIdId"
+                  aria-label="ngSelected">
+                  <option [ngValue]="undefined">{{ 'Select customerId' | translate }}</option>
+                  <option *ngFor="let obj of form.preload.customerIdList" [value]="obj.key">{{ obj.key }}</option>
+                </select>
         </div>
       </div>
 

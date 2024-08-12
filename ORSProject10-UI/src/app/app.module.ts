@@ -99,6 +99,8 @@ import { YComponent } from './y/y.component';
 import { MovielistComponent } from './movie/movielist.component';
 import { BikeComponent } from './bike/bike.component';
 import { BikelistComponent } from './bike/bikelist.component';
+import { CarComponent } from './car/car.component';
+import { CarlistComponent } from './car/carlist.component';
 
 
 
@@ -196,7 +198,9 @@ export function myHttpLoader(http: HttpClient) {
     YComponent,
     MovielistComponent,
     BikeComponent,
-    BikelistComponent
+    BikelistComponent,
+    CarComponent,
+    CarlistComponent
 
 
 

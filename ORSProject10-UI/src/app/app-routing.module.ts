@@ -81,6 +81,8 @@ import { MovieComponent } from './movie/movie.component';
 import { MovielistComponent } from './movie/movielist.component';
 import { BikeComponent } from './bike/bike.component';
 import { BikelistComponent } from './bike/bikelist.component';
+import { CarComponent } from './car/car.component';
+import { CarlistComponent } from './car/carlist.component';
 
 
 const routes: Routes = [
@@ -558,11 +560,13 @@ const routes: Routes = [
         component: AtmsComponent
 
     },
+
     {
         path: 'atms/:id',
         component: AtmsComponent
 
     },
+
     {
         path: 'atmslist',
         component: AtmslistComponent
@@ -663,8 +667,24 @@ const routes: Routes = [
 
     },
     {
-        path: 'movie/:id',
+        path: 'bike/:id',
         component: BikeComponent
+
+    },
+
+    {
+        path: 'car',
+        component: CarComponent
+
+    },
+    {
+        path: 'carlist',
+        component: CarlistComponent
+
+    },
+    {
+        path: 'car/:id',
+        component: CarComponent
 
     },
 

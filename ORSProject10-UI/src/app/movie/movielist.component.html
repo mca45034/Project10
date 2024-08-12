@@ -61,10 +61,12 @@
 
         <div class="col-md-3">
           <select class="form-control" name="preloadId" [(ngModel)]="form.searchParams.preloadId">
-            <option [ngValue]="null">{{ 'Select category' | translate }}</option>
+            <option [ngValue]="null">{{ 'Select Bike Name' | translate }}</option>
             <option *ngFor="let obj of form.preload.preloadList" [value]="obj.key">{{ obj.value }}</option>
           </select>
+
         </div>
+
       </div>
 
       <div class="row mt-2 justify-content-center">

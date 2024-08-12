@@ -28,23 +28,22 @@ public class ATMsCtl extends BaseCtl<ATMsForm, ATMsDTO, ATMsServiceInt> {
 
 	@Autowired
 	LocationServiceInt locationService;
+	
 
 	@Autowired
 	ATMsServiceInt ATMsService;
 
 	@GetMapping("/preload")
+	
 	public ORSResponse preload() {
 		System.out.println("inside preload Rahul");
 		ORSResponse res = new ORSResponse(true);
+		
 		LocationDTO dto = new LocationDTO();
 		List<DropdownList> list = locationService.search(dto, userContext);
 		res.addResult("locationList", list);
 		return res;
 	}
 
-	@PostMapping
-	public ResponseEntity<String> createATMs(@Valid @RequestBody ATMsForm atmsForm) {
-		// Handle the logic to save the patient
-		return new ResponseEntity<>("ATMs created successfully", HttpStatus.CREATED);
-	}
+	
 }

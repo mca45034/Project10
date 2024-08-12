@@ -12,6 +12,10 @@ import com.rays.common.BaseDTO;
 @Table(name = "ST_CUSTOMERID")
 public class CustomerIdDTO extends BaseDTO {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static String YES = "Y";
 	public static String NO = "N";
 	public static String ACTIVE = "Active";

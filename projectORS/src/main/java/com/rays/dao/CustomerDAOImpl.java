@@ -18,15 +18,19 @@ import com.rays.dto.CustomerDTO;
 import com.rays.dto.GenderDTO;
 
 @Repository
-public class CustomerDAOImpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt {
+public class CustomerDAOImpl extends BaseDAOImpl<CustomerDTO> implements CustomerDAOInt   {
 
 	@Override
+	
+	
 	public Class<CustomerDTO> getDTOClass() {
 		return CustomerDTO.class;
 	}
 
 	@Autowired
 	GenderDAOInt genderDao;
+	
+	
 
 	@Override
 	protected void populate(CustomerDTO dto, UserContext userContext) {

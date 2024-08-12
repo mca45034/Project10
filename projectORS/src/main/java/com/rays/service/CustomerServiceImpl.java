@@ -10,8 +10,9 @@ import com.rays.dto.CustomerDTO;
 
 @Service
 @Transactional
-public class CustomerServiceImpl extends BaseServiceImpl<CustomerDTO, CustomerDAOInt> implements CustomerServiceInt {
+public class CustomerServiceImpl extends   BaseServiceImpl<CustomerDTO, CustomerDAOInt> implements CustomerServiceInt {
 
+	
 	@Autowired
 	CustomerDAOInt customerDAO;
 

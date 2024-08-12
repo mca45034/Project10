@@ -23,12 +23,19 @@ public class CustomerIdCtl extends BaseCtl<CustomerIdForm, CustomerIdDTO, Custom
 	private CustomerIdServiceInt customerIdService;
 
 	@GetMapping("/preload")
+
 	public ORSResponse preload() {
+
 		System.out.println("inside preload");
+
 		ORSResponse res = new ORSResponse(true);
+
 		CustomerIdDTO dto = new CustomerIdDTO();
+
 		List<DropdownList> list = customerIdService.search(dto, userContext);
+
 		res.addResult("customerIdList", list);
+
 		return res;
 	}
 
